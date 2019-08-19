@@ -40,6 +40,28 @@ app.get('/home',(request,response)=>{
 
  });
 })
+app.get('/sentbox',(request,response)=>{
+	logincontroller.logincheck(userid,pass,(err,data)=>{
+ 	if(err) throw err;
+ 	else{
+ 		mailcontroller.sentbox(data[0].emailid,(err,result)=>{
+ 			if (err) throw err;
+ 			else
+ 			{	if(typeof result ==='undefined'){
+ 				response.render('sentbox',{msg: nameFromDb , emptyStatus : "No sent mails in the box"});
+ 				}else{
+ 				
+ 					response.render('sentbox',{msg: nameFromDb , inboxStatus : result});
+
+
+ 				}
+ 				
+ 			}
+ 		});
+ 		}
+
+ 	});
+})
 app.get('/compose',(request,response)=>{response.render('compose',{msg: nameFromDb})})
 app.get('/changepassword',(request,response)=>{response.render('changepassword',{msg: nameFromDb})})
 app.get('/register',(request,response)=>{response.render('register')})
@@ -61,6 +83,7 @@ app.get('/deletemail',(request,response)=>{
 
  });
 })
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
