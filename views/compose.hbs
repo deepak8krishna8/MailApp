@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Compose Mail</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<style type="text/css">
+		h1{
+			font-size: 40px;
+ 			 background: -webkit-linear-gradient( #ff66ff, #00ffff);
+  			-webkit-background-clip: text;
+  			-webkit-text-fill-color: transparent;
+		}
+		h2{
+			font-size:40x;
+ 			 background: -webkit-linear-gradient( #ff66ff, #00ffff);
+  			-webkit-background-clip: text;
+  			-webkit-text-fill-color: transparent;
+		}
+		#loginbox{
+			margin-top: 50px;
+			background-color: #ff4d4d;
+			height:600px;
+			padding-top: 30px;
+		}
+	</style>
+</head>
+<body style="background-color: #ffb3b3">
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#ff4d4d ">
+  <a class="navbar-brand" href="#"><h1>MAIL APP</h1></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="home" >Inbox </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="compose" >SendMail <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="deletemail" >DeleteMail</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="changepassword" >ChangePassword</a>
+      </li>
+    </ul>
+   <div class="form-inline my-2 my-lg-0">
+      <h4 style="padding-right: 30px">Welcome {{msg}}</h4>
+      <a href="/"> <button class="btn btn-primary my-2 my-sm-0">LOGOUT</button></a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+  <center>
+    <h4>{{sent}}</h4>
+   <div id = 'loginbox' class="col-sm-4">
+  	<h2>Compose</h2>
+    <label>From:</label> <h6>{{msg}}</h6>
+       <form action="/sendMail" method="post">
+        
+  
+   <div class="form-group">
+    <label for="email">To:</label>
+    <input type="email" class="form-control" id="email" name="reciever">
+  </div>
+  <div class="form-group">
+    <label for="name">Subject:</label>
+    <input type="text" class="form-control" id="sub" name = "subject">
+  </div>
+  <div class="form-group">
+  <label for="comment">Message:</label>
+  <textarea class="form-control" rows="5" id="message" name="message"></textarea>
+</div>
+  <button type="submit" class="btn btn-primary">SEND</button>
+</form>
+  </div>
+ 
+  </center>
+
+</body>
+</html>

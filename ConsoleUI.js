@@ -1,6 +1,6 @@
 const readline = require('readline-sync')
-const logincontroller = require('./loginController.js')
-const mailcontroller = require('./MailController.js')
+const logincontroller = require('./models/loginController.js')
+const mailcontroller = require('./models/MailController.js')
 
 
 //Starting of App Entry function will be called
